@@ -50,4 +50,8 @@ Module.symvers
 Mkfile.old
 dkms.conf
 WebApplication2/Web.config
+<<<<<<< HEAD
 .vs/WebApplication2/v14/.suo
+=======
+WebApplication2/Web.config
+>>>>>>> origin/master
