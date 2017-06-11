@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Machinist>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Добавить машиниста", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            ФИО
+        </th>
+        <th>
+            Дата рождения
+        </th>
+        <th>
+            Адрес проживания
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>*@
+        <th>
+            Телефон
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FIO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateBirth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Category)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.Telephone)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "Edit", new { id=item.idMachinist }) |
+            @Html.ActionLink("Детали", "Details", new { id=item.idMachinist }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.idMachinist })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Cargo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Добавить элемент", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Номер вагона
+        </th>
+        <th>
+            Вес груза
+        </th>
+        <th>
+            Состояние вагона
+        </th>
+        <th>
+            Сырьё
+        </th>
+        <th>
+            Отправитель
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Weight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.State)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RawMaterials.NameMaterial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Shipment.Sender)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "Edit", new { id=item.idCargo }) |
+            @Html.ActionLink("Детали", "Details", new { id=item.idCargo }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.idCargo })
+        </td>
+    </tr>
+}
+
+</table>

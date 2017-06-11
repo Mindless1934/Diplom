@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Railway>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Добавить элемент", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Тип пути
+        </th>
+        <th>
+            Название пути
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RailwayType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RailwayName)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "Edit", new { id=item.idRailway }) |
+            @Html.ActionLink("Детали", "Details", new { id=item.idRailway }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.idRailway })
+        </td>
+    </tr>
+}
+
+</table>

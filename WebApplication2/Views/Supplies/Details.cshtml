@@ -1,0 +1,74 @@
+﻿@model Supply
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Supply</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateofDelivery)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateofDelivery)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateofDeparture)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateofDeparture)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Branches.idBranch)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Branches.idBranch)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Locos.LocoName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Locos.LocoName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Machinist.FIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Machinist.FIO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Railway.RailwayType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Railway.RailwayType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shipment.Sender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shipment.Sender)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idSupply }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

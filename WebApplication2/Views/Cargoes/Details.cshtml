@@ -1,0 +1,58 @@
+﻿@model Cargo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Cargo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RawMaterials.NameMaterial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RawMaterials.NameMaterial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shipment.Sender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shipment.Sender)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idCargo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

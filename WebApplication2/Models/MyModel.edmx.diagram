@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0d8d4c9862a24b33be1975d1c19c5ed4" Name="Diagram1">
+        <EntityTypeShape EntityType="TTCModel.sysdiagrams" Width="1.5" PointX="0.5" PointY="10.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="TTCModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="TTCModel.AspNetUserClaims" Width="1.5" PointX="5.375" PointY="10.875" />
+        <EntityTypeShape EntityType="TTCModel.AspNetUserLogins" Width="1.5" PointX="3.875" PointY="10.75" />
+        <EntityTypeShape EntityType="TTCModel.AspNetRoles" Width="1.5" PointX="1.625" PointY="18" />
+        <EntityTypeShape EntityType="TTCModel.AspNetUserRoles" Width="1.5" PointX="3.875" PointY="13.875" />
+        <EntityTypeShape EntityType="TTCModel.AspNetUsers" Width="1.5" PointX="1.625" PointY="12.875" />
+        <AssociationConnector Association="TTCModel.FK_AspNetUserRoles_AspNetRoles" />
+        <AssociationConnector Association="TTCModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="TTCModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="TTCModel.FK_AspNetUserRoles_AspNetUsers" />
+        <EntityTypeShape EntityType="TTCModel.Branches" Width="1.5" PointX="1.5" PointY="2.625" />
+        <EntityTypeShape EntityType="TTCModel.Cargo" Width="1.5" PointX="6.75" PointY="0.5" />
+        <EntityTypeShape EntityType="TTCModel.Distribution" Width="1.5" PointX="6.75" PointY="3.25" />
+        <EntityTypeShape EntityType="TTCModel.Locos" Width="1.5" PointX="1.5" PointY="0.5" />
+        <EntityTypeShape EntityType="TTCModel.Railway" Width="1.5" PointX="3.25" PointY="0.5" />
+        <EntityTypeShape EntityType="TTCModel.Supply" Width="1.5" PointX="3.25" PointY="2.5" />
+        <AssociationConnector Association="TTCModel.FK_Distribution_Branches" />
+        <AssociationConnector Association="TTCModel.FK_Supply_Branches" />
+        <AssociationConnector Association="TTCModel.FK_Supply_Locos" />
+        <AssociationConnector Association="TTCModel.FK_Supply_Railway" />
+        <EntityTypeShape EntityType="TTCModel.Shipment" Width="1.5" PointX="8.5" PointY="0.5" />
+        <AssociationConnector Association="TTCModel.FK_Cargo_Shipment" />
+        <AssociationConnector Association="TTCModel.FK_Supply_Shipment" ManuallyRouted="true" >
+          <ConnectorPoint PointX="9.25" PointY="2.4802864583333335" />
+          <ConnectorPoint PointX="9.25" PointY="5.5595914713541665" />
+          <ConnectorPoint PointX="4.75" PointY="5.5595914713541665" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="TTCModel.Machinist" Width="1.5" PointX="5" PointY="2.625" />
+        <AssociationConnector Association="TTCModel.FK_Supply_Machinist" />
+        <EntityTypeShape EntityType="TTCModel.RawMaterials" Width="1.5" PointX="5" PointY="0.5" />
+        <AssociationConnector Association="TTCModel.FK_Cargo_RawMaterials" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Shipment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Добавить элемент", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Имя поставки
+        </th>
+        <th>
+            Отправитель
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShipmentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sender)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "Edit", new { id=item.idShipment }) |
+            @Html.ActionLink("Детали", "Details", new { id=item.idShipment }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.idShipment })
+        </td>
+    </tr>
+}
+
+</table>

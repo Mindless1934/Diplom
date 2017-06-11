@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Supply>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Добавить элемент", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Дата поставки
+        </th>
+        <th>
+            Дата отправки
+        </th>
+        <th>
+            Ветвь
+        </th>
+        <th>
+            Локомотив
+        </th>
+        <th>
+            Машинист
+        </th>
+        <th>
+            Подходные пути
+        </th>
+        <th>
+            Имя поставки
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateofDelivery)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateofDeparture)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Branches.BranchNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Locos.LocoName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Machinist.FIO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Railway.RailwayName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Shipment.ShipmentName)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "Edit", new { id=item.idSupply }) |
+            @Html.ActionLink("Детали", "Details", new { id=item.idSupply }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.idSupply })
+        </td>
+    </tr>
+}
+
+</table>
