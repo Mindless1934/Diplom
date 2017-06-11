@@ -7,23 +7,26 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
-public partial class Branches
+namespace WebApplication2.Models
 {
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    public Branches()
+    using System;
+    using System.Collections.Generic;
+    
+    public partial class Branches
     {
-        this.Distribution = new HashSet<Distribution>();
-        this.Supply = new HashSet<Supply>();
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Branches()
+        {
+            this.Distribution = new HashSet<Distribution>();
+            this.Supply = new HashSet<Supply>();
+        }
+    
+        public int idBranch { get; set; }
+        public Nullable<int> BranchNumber { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Distribution> Distribution { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Supply> Supply { get; set; }
     }
-
-    public int idBranch { get; set; }
-    public Nullable<int> BranchNumber { get; set; }
-
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-    public virtual ICollection<Distribution> Distribution { get; set; }
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-    public virtual ICollection<Supply> Supply { get; set; }
 }

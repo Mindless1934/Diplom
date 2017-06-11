@@ -7,20 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
-public partial class RawMaterials
+namespace WebApplication2.Models
 {
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    public RawMaterials()
+    using System;
+    using System.Collections.Generic;
+    
+    public partial class RawMaterials
     {
-        this.Cargo = new HashSet<Cargo>();
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public RawMaterials()
+        {
+            this.Cargo = new HashSet<Cargo>();
+        }
+    
+        public int idMaterial { get; set; }
+        public string NameMaterial { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cargo> Cargo { get; set; }
     }
-
-    public int idMaterial { get; set; }
-    public string NameMaterial { get; set; }
-
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-    public virtual ICollection<Cargo> Cargo { get; set; }
 }

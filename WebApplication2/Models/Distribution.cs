@@ -7,14 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
-public partial class Distribution
+namespace WebApplication2.Models
 {
-    public int idDistr { get; set; }
-    public Nullable<int> idRailway { get; set; }
-    public Nullable<int> idBranch { get; set; }
-
-    public virtual Branches Branches { get; set; }
+    using System;
+    using System.Collections.Generic;
+    
+    public partial class Distribution
+    {
+        public int idDistr { get; set; }
+        public Nullable<int> idRailway { get; set; }
+        public Nullable<int> idBranch { get; set; }
+    
+        public virtual Branches Branches { get; set; }
+    }
 }

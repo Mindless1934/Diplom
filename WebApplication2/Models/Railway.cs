@@ -7,21 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
-public partial class Railway
+namespace WebApplication2.Models
 {
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    public Railway()
+    using System;
+    using System.Collections.Generic;
+    
+    public partial class Railway
     {
-        this.Supply = new HashSet<Supply>();
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Railway()
+        {
+            this.Supply = new HashSet<Supply>();
+        }
+    
+        public int idRailway { get; set; }
+        public string RailwayType { get; set; }
+        public string RailwayName { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Supply> Supply { get; set; }
     }
-
-    public int idRailway { get; set; }
-    public string RailwayType { get; set; }
-    public string RailwayName { get; set; }
-
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-    public virtual ICollection<Supply> Supply { get; set; }
 }
