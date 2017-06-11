@@ -26,12 +26,9 @@
         <AssociationConnector Association="TTCModel.FK_Supply_Branches" />
         <AssociationConnector Association="TTCModel.FK_Supply_Locos" />
         <AssociationConnector Association="TTCModel.FK_Supply_Railway" />
-        <EntityTypeShape EntityType="TTCModel.Shipment" Width="1.5" PointX="8.5" PointY="0.5" />
+        <EntityTypeShape EntityType="TTCModel.Shipment" Width="1.5" PointX="9" PointY="0.5" />
         <AssociationConnector Association="TTCModel.FK_Cargo_Shipment" />
-        <AssociationConnector Association="TTCModel.FK_Supply_Shipment" ManuallyRouted="true" >
-          <ConnectorPoint PointX="9.25" PointY="2.4802864583333335" />
-          <ConnectorPoint PointX="9.25" PointY="5.5595914713541665" />
-          <ConnectorPoint PointX="4.75" PointY="5.5595914713541665" />
+        <AssociationConnector Association="TTCModel.FK_Supply_Shipment" ManuallyRouted="false" >
         </AssociationConnector>
         <EntityTypeShape EntityType="TTCModel.Machinist" Width="1.5" PointX="5" PointY="2.625" />
         <AssociationConnector Association="TTCModel.FK_Supply_Machinist" />
