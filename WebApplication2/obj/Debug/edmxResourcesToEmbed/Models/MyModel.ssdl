@@ -78,6 +78,7 @@
     <Property Name="Weight" Type="float" />
     <Property Name="State" Type="nvarchar" MaxLength="50" />
     <Property Name="idRawMaterial" Type="int" />
+    <Property Name="idBranch" Type="int" />
   </EntityType>
   <EntityType Name="Distribution">
     <Key>
@@ -139,7 +140,6 @@
     <Property Name="DateofDelivery" Type="datetime" />
     <Property Name="idLoco" Type="int" />
     <Property Name="DateofDeparture" Type="datetime" />
-    <Property Name="idBranch" Type="int" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -172,6 +172,18 @@
       </Principal>
       <Dependent Role="AspNetUserRoles">
         <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cargo_Branches">
+    <End Role="Branches" Type="Self.Branches" Multiplicity="0..1" />
+    <End Role="Cargo" Type="Self.Cargo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branches">
+        <PropertyRef Name="idBranch" />
+      </Principal>
+      <Dependent Role="Cargo">
+        <PropertyRef Name="idBranch" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -235,18 +247,6 @@
         <PropertyRef Name="idBranch" />
       </Principal>
       <Dependent Role="Distribution">
-        <PropertyRef Name="idBranch" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Supply_Branches">
-    <End Role="Branches" Type="Self.Branches" Multiplicity="0..1" />
-    <End Role="Supply" Type="Self.Supply" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Branches">
-        <PropertyRef Name="idBranch" />
-      </Principal>
-      <Dependent Role="Supply">
         <PropertyRef Name="idBranch" />
       </Dependent>
     </ReferentialConstraint>
@@ -355,6 +355,10 @@
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
     </AssociationSet>
+    <AssociationSet Name="FK_Cargo_Branches" Association="Self.FK_Cargo_Branches">
+      <End Role="Branches" EntitySet="Branches" />
+      <End Role="Cargo" EntitySet="Cargo" />
+    </AssociationSet>
     <AssociationSet Name="FK_Cargo_RawMaterials" Association="Self.FK_Cargo_RawMaterials">
       <End Role="RawMaterials" EntitySet="RawMaterials" />
       <End Role="Cargo" EntitySet="Cargo" />
@@ -374,10 +378,6 @@
     <AssociationSet Name="FK_Distribution_Branches" Association="Self.FK_Distribution_Branches">
       <End Role="Branches" EntitySet="Branches" />
       <End Role="Distribution" EntitySet="Distribution" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Supply_Branches" Association="Self.FK_Supply_Branches">
-      <End Role="Branches" EntitySet="Branches" />
-      <End Role="Supply" EntitySet="Supply" />
     </AssociationSet>
     <AssociationSet Name="FK_Supply_Locos" Association="Self.FK_Supply_Locos">
       <End Role="Locos" EntitySet="Locos" />

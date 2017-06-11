@@ -111,6 +111,7 @@
     <EntitySetMapping Name="Cargo">
       <EntityTypeMapping TypeName="TTCModel.Cargo">
         <MappingFragment StoreEntitySet="Cargo">
+          <ScalarProperty Name="idBranch" ColumnName="idBranch" />
           <ScalarProperty Name="idRawMaterial" ColumnName="idRawMaterial" />
           <ScalarProperty Name="State" ColumnName="State" />
           <ScalarProperty Name="Weight" ColumnName="Weight" />
@@ -147,20 +148,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Supply">
-      <EntityTypeMapping TypeName="TTCModel.Supply">
-        <MappingFragment StoreEntitySet="Supply">
-          <ScalarProperty Name="idBranch" ColumnName="idBranch" />
-          <ScalarProperty Name="DateofDeparture" ColumnName="DateofDeparture" />
-          <ScalarProperty Name="idLoco" ColumnName="idLoco" />
-          <ScalarProperty Name="DateofDelivery" ColumnName="DateofDelivery" />
-          <ScalarProperty Name="idMachinist" ColumnName="idMachinist" />
-          <ScalarProperty Name="idShipment" ColumnName="idShipment" />
-          <ScalarProperty Name="idRailway" ColumnName="idRailway" />
-          <ScalarProperty Name="idSupply" ColumnName="idSupply" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Shipment">
       <EntityTypeMapping TypeName="TTCModel.Shipment">
         <MappingFragment StoreEntitySet="Shipment">
@@ -186,6 +173,19 @@
         <MappingFragment StoreEntitySet="RawMaterials">
           <ScalarProperty Name="NameMaterial" ColumnName="NameMaterial" />
           <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supply">
+      <EntityTypeMapping TypeName="TTCModel.Supply">
+        <MappingFragment StoreEntitySet="Supply">
+          <ScalarProperty Name="DateofDeparture" ColumnName="DateofDeparture" />
+          <ScalarProperty Name="idLoco" ColumnName="idLoco" />
+          <ScalarProperty Name="DateofDelivery" ColumnName="DateofDelivery" />
+          <ScalarProperty Name="idMachinist" ColumnName="idMachinist" />
+          <ScalarProperty Name="idShipment" ColumnName="idShipment" />
+          <ScalarProperty Name="idRailway" ColumnName="idRailway" />
+          <ScalarProperty Name="idSupply" ColumnName="idSupply" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

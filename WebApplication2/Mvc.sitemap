@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
+
+  <mvcSiteMapNode title="Главная" controller="Home" action="Index">
+    <mvcSiteMapNode title="Красные" clickable="false" roles="Admin">
+      
+      <mvcSiteMapNode title="Сырье" controller="RawMaterials" action="Index"/>
+      <mvcSiteMapNode title="Ветки" controller="Branches" action="Index"/>
+      <mvcSiteMapNode title="Локомотивы" controller="Locos" action="Index"/>
+      <mvcSiteMapNode title="Подходные пути" controller="Railways" action="Index"/>
+      <mvcSiteMapNode title="Машинисты" controller="Machinists" action="Index"/>
+      <mvcSiteMapNode title="Роли" controller="AspNetUserRoles" action="Index"/>
+
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Вагоноподачи" controller="Supplies" action="Index" roles="Admin, User"/>
+    <mvcSiteMapNode title="Поставки" controller="Shipments" action="Index" roles="Admin, User"/>
+    <mvcSiteMapNode title="Вагоны" controller="Cargoes" action="Index" roles="Admin, User"/>
+  </mvcSiteMapNode>
+
+</mvcSiteMap>

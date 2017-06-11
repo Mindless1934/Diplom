@@ -7,26 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication2.Models
+using System;
+using System.Collections.Generic;
+
+public partial class Supply
 {
-    using System;
-    using System.Collections.Generic;
-    
-    public partial class Supply
-    {
-        public int idSupply { get; set; }
-        public Nullable<int> idRailway { get; set; }
-        public Nullable<int> idShipment { get; set; }
-        public Nullable<int> idMachinist { get; set; }
-        public Nullable<System.DateTime> DateofDelivery { get; set; }
-        public Nullable<int> idLoco { get; set; }
-        public Nullable<System.DateTime> DateofDeparture { get; set; }
-        public Nullable<int> idBranch { get; set; }
-    
-        public virtual Branches Branches { get; set; }
-        public virtual Locos Locos { get; set; }
-        public virtual Railway Railway { get; set; }
-        public virtual Shipment Shipment { get; set; }
-        public virtual Machinist Machinist { get; set; }
-    }
+    public int idSupply { get; set; }
+    public Nullable<int> idRailway { get; set; }
+    public Nullable<int> idShipment { get; set; }
+    public Nullable<int> idMachinist { get; set; }
+    public Nullable<System.DateTime> DateofDelivery { get; set; }
+    public Nullable<int> idLoco { get; set; }
+    public Nullable<System.DateTime> DateofDeparture { get; set; }
+
+    public virtual Locos Locos { get; set; }
+    public virtual Machinist Machinist { get; set; }
+    public virtual Railway Railway { get; set; }
+    public virtual Shipment Shipment { get; set; }
 }

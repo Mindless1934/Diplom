@@ -39,10 +39,10 @@ namespace WebApplication2.Models
         public virtual DbSet<Distribution> Distribution { get; set; }
         public virtual DbSet<Locos> Locos { get; set; }
         public virtual DbSet<Railway> Railway { get; set; }
-        public virtual DbSet<Supply> Supply { get; set; }
         public virtual DbSet<Shipment> Shipment { get; set; }
         public virtual DbSet<Machinist> Machinist { get; set; }
         public virtual DbSet<RawMaterials> RawMaterials { get; set; }
+        public virtual DbSet<Supply> Supply { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

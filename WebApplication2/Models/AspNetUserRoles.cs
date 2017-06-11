@@ -7,18 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication2.Models
+using System;
+using System.Collections.Generic;
+
+public partial class AspNetUserRoles
 {
-    using System;
-    using System.Collections.Generic;
-    
-    public partial class AspNetUserRoles
-    {
-        public string UserId { get; set; }
-        public string RoleId { get; set; }
-        public int UserRoleId { get; set; }
-    
-        public virtual AspNetRoles AspNetRoles { get; set; }
-        public virtual AspNetUsers AspNetUsers { get; set; }
-    }
+    public string UserId { get; set; }
+    public string RoleId { get; set; }
+    public int UserRoleId { get; set; }
+
+    public virtual AspNetRoles AspNetRoles { get; set; }
+    public virtual AspNetUsers AspNetUsers { get; set; }
 }

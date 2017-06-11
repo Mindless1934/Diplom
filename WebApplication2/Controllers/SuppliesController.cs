@@ -17,7 +17,7 @@ namespace WebApplication2.Controllers
         // GET: Supplies
         public ActionResult Index()
         {
-            var supply = db.Supply.Include(s => s.Branches).Include(s => s.Locos).Include(s => s.Machinist).Include(s => s.Railway).Include(s => s.Shipment);
+            var supply = db.Supply.Include(s => s.Locos).Include(s => s.Railway).Include(s => s.Shipment).Include(s => s.Machinist);
             return View(supply.ToList());
         }
 
@@ -41,9 +41,9 @@ namespace WebApplication2.Controllers
         {
             ViewBag.idBranch = new SelectList(db.Branches, "idBranch", "idBranch");
             ViewBag.idLoco = new SelectList(db.Locos, "idLoco", "LocoName");
-            ViewBag.idMachinist = new SelectList(db.Machinist, "idMachinist", "FIO");
             ViewBag.idRailway = new SelectList(db.Railway, "idRailway", "RailwayType");
-            ViewBag.idShipment = new SelectList(db.Shipment, "idShipment", "Sender");
+            ViewBag.idShipment = new SelectList(db.Shipment, "idShipment", "ShipmentName");
+            ViewBag.idMachinist = new SelectList(db.Machinist, "idMachinist", "FIO");
             return View();
         }
 
@@ -61,11 +61,10 @@ namespace WebApplication2.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.idBranch = new SelectList(db.Branches, "idBranch", "idBranch", supply.idBranch);
             ViewBag.idLoco = new SelectList(db.Locos, "idLoco", "LocoName", supply.idLoco);
-            ViewBag.idMachinist = new SelectList(db.Machinist, "idMachinist", "FIO", supply.idMachinist);
             ViewBag.idRailway = new SelectList(db.Railway, "idRailway", "RailwayType", supply.idRailway);
-            ViewBag.idShipment = new SelectList(db.Shipment, "idShipment", "Sender", supply.idShipment);
+            ViewBag.idShipment = new SelectList(db.Shipment, "idShipment", "ShipmentName", supply.idShipment);
+            ViewBag.idMachinist = new SelectList(db.Machinist, "idMachinist", "FIO", supply.idMachinist);
             return View(supply);
         }
 
@@ -81,11 +80,11 @@ namespace WebApplication2.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.idBranch = new SelectList(db.Branches, "idBranch", "idBranch", supply.idBranch);
+
             ViewBag.idLoco = new SelectList(db.Locos, "idLoco", "LocoName", supply.idLoco);
-            ViewBag.idMachinist = new SelectList(db.Machinist, "idMachinist", "FIO", supply.idMachinist);
             ViewBag.idRailway = new SelectList(db.Railway, "idRailway", "RailwayType", supply.idRailway);
-            ViewBag.idShipment = new SelectList(db.Shipment, "idShipment", "Sender", supply.idShipment);
+            ViewBag.idShipment = new SelectList(db.Shipment, "idShipment", "ShipmentName", supply.idShipment);
+            ViewBag.idMachinist = new SelectList(db.Machinist, "idMachinist", "FIO", supply.idMachinist);
             return View(supply);
         }
 
@@ -102,11 +101,11 @@ namespace WebApplication2.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.idBranch = new SelectList(db.Branches, "idBranch", "idBranch", supply.idBranch);
+
             ViewBag.idLoco = new SelectList(db.Locos, "idLoco", "LocoName", supply.idLoco);
-            ViewBag.idMachinist = new SelectList(db.Machinist, "idMachinist", "FIO", supply.idMachinist);
             ViewBag.idRailway = new SelectList(db.Railway, "idRailway", "RailwayType", supply.idRailway);
-            ViewBag.idShipment = new SelectList(db.Shipment, "idShipment", "Sender", supply.idShipment);
+            ViewBag.idShipment = new SelectList(db.Shipment, "idShipment", "ShipmentName", supply.idShipment);
+            ViewBag.idMachinist = new SelectList(db.Machinist, "idMachinist", "FIO", supply.idMachinist);
             return View(supply);
         }
 

@@ -7,30 +7,27 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Добавить элемент", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            Дата поставки
+            @Html.DisplayNameFor(model => model.DateofDelivery)
         </th>
         <th>
-            Дата отправки
+            @Html.DisplayNameFor(model => model.DateofDeparture)
         </th>
         <th>
-            Ветвь
+            @Html.DisplayNameFor(model => model.Locos.LocoName)
         </th>
         <th>
-            Локомотив
+            @Html.DisplayNameFor(model => model.Railway.RailwayType)
         </th>
         <th>
-            Машинист
+            @Html.DisplayNameFor(model => model.Shipment.ShipmentName)
         </th>
         <th>
-            Подходные пути
-        </th>
-        <th>
-            Имя поставки
+            @Html.DisplayNameFor(model => model.Machinist.FIO)
         </th>
         <th></th>
     </tr>
@@ -44,24 +41,21 @@
             @Html.DisplayFor(modelItem => item.DateofDeparture)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Branches.BranchNumber)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Locos.LocoName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Machinist.FIO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Railway.RailwayName)
+            @Html.DisplayFor(modelItem => item.Railway.RailwayType)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Shipment.ShipmentName)
         </td>
         <td>
-            @Html.ActionLink("Изменить", "Edit", new { id=item.idSupply }) |
-            @Html.ActionLink("Детали", "Details", new { id=item.idSupply }) |
-            @Html.ActionLink("Удалить", "Delete", new { id=item.idSupply })
+            @Html.DisplayFor(modelItem => item.Machinist.FIO)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idSupply }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idSupply }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idSupply })
         </td>
     </tr>
 }

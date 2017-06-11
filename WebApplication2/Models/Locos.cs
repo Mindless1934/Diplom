@@ -7,24 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication2.Models
+using System;
+using System.Collections.Generic;
+
+public partial class Locos
 {
-    using System;
-    using System.Collections.Generic;
-    
-    public partial class Locos
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+    public Locos()
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Locos()
-        {
-            this.Supply = new HashSet<Supply>();
-        }
-    
-        public int idLoco { get; set; }
-        public string LocoName { get; set; }
-        public string State { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Supply> Supply { get; set; }
+        this.Supply = new HashSet<Supply>();
     }
+
+    public int idLoco { get; set; }
+    public string LocoName { get; set; }
+    public string State { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    public virtual ICollection<Supply> Supply { get; set; }
 }

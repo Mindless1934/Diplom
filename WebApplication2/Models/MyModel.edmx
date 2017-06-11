@@ -83,6 +83,7 @@
           <Property Name="Weight" Type="float" />
           <Property Name="State" Type="nvarchar" MaxLength="50" />
           <Property Name="idRawMaterial" Type="int" />
+          <Property Name="idBranch" Type="int" />
         </EntityType>
         <EntityType Name="Distribution">
           <Key>
@@ -144,7 +145,6 @@
           <Property Name="DateofDelivery" Type="datetime" />
           <Property Name="idLoco" Type="int" />
           <Property Name="DateofDeparture" Type="datetime" />
-          <Property Name="idBranch" Type="int" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -177,6 +177,18 @@
             </Principal>
             <Dependent Role="AspNetUserRoles">
               <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cargo_Branches">
+          <End Role="Branches" Type="Self.Branches" Multiplicity="0..1" />
+          <End Role="Cargo" Type="Self.Cargo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branches">
+              <PropertyRef Name="idBranch" />
+            </Principal>
+            <Dependent Role="Cargo">
+              <PropertyRef Name="idBranch" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -240,18 +252,6 @@
               <PropertyRef Name="idBranch" />
             </Principal>
             <Dependent Role="Distribution">
-              <PropertyRef Name="idBranch" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Supply_Branches">
-          <End Role="Branches" Type="Self.Branches" Multiplicity="0..1" />
-          <End Role="Supply" Type="Self.Supply" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Branches">
-              <PropertyRef Name="idBranch" />
-            </Principal>
-            <Dependent Role="Supply">
               <PropertyRef Name="idBranch" />
             </Dependent>
           </ReferentialConstraint>
@@ -360,6 +360,10 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
           </AssociationSet>
+          <AssociationSet Name="FK_Cargo_Branches" Association="Self.FK_Cargo_Branches">
+            <End Role="Branches" EntitySet="Branches" />
+            <End Role="Cargo" EntitySet="Cargo" />
+          </AssociationSet>
           <AssociationSet Name="FK_Cargo_RawMaterials" Association="Self.FK_Cargo_RawMaterials">
             <End Role="RawMaterials" EntitySet="RawMaterials" />
             <End Role="Cargo" EntitySet="Cargo" />
@@ -379,10 +383,6 @@
           <AssociationSet Name="FK_Distribution_Branches" Association="Self.FK_Distribution_Branches">
             <End Role="Branches" EntitySet="Branches" />
             <End Role="Distribution" EntitySet="Distribution" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Supply_Branches" Association="Self.FK_Supply_Branches">
-            <End Role="Branches" EntitySet="Branches" />
-            <End Role="Supply" EntitySet="Supply" />
           </AssociationSet>
           <AssociationSet Name="FK_Supply_Locos" Association="Self.FK_Supply_Locos">
             <End Role="Locos" EntitySet="Locos" />
@@ -474,41 +474,41 @@
           <EntitySet Name="Distribution" EntityType="TTCModel.Distribution" />
           <EntitySet Name="Locos" EntityType="TTCModel.Locos" />
           <EntitySet Name="Railway" EntityType="TTCModel.Railway" />
-          <EntitySet Name="Supply" EntityType="TTCModel.Supply" />
           <AssociationSet Name="FK_Distribution_Branches" Association="TTCModel.FK_Distribution_Branches">
             <End Role="Branches" EntitySet="Branches" />
             <End Role="Distribution" EntitySet="Distribution" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Supply_Branches" Association="TTCModel.FK_Supply_Branches">
-            <End Role="Branches" EntitySet="Branches" />
-            <End Role="Supply" EntitySet="Supply" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Supply_Locos" Association="TTCModel.FK_Supply_Locos">
-            <End Role="Locos" EntitySet="Locos" />
-            <End Role="Supply" EntitySet="Supply" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Supply_Railway" Association="TTCModel.FK_Supply_Railway">
-            <End Role="Railway" EntitySet="Railway" />
-            <End Role="Supply" EntitySet="Supply" />
           </AssociationSet>
           <EntitySet Name="Shipment" EntityType="TTCModel.Shipment" />
           <AssociationSet Name="FK_Cargo_Shipment" Association="TTCModel.FK_Cargo_Shipment">
             <End Role="Shipment" EntitySet="Shipment" />
             <End Role="Cargo" EntitySet="Cargo" />
           </AssociationSet>
-          <AssociationSet Name="FK_Supply_Shipment" Association="TTCModel.FK_Supply_Shipment">
-            <End Role="Shipment" EntitySet="Shipment" />
-            <End Role="Supply" EntitySet="Supply" />
-          </AssociationSet>
           <EntitySet Name="Machinist" EntityType="TTCModel.Machinist" />
-          <AssociationSet Name="FK_Supply_Machinist" Association="TTCModel.FK_Supply_Machinist">
-            <End Role="Machinist" EntitySet="Machinist" />
-            <End Role="Supply" EntitySet="Supply" />
-          </AssociationSet>
           <EntitySet Name="RawMaterials" EntityType="TTCModel.RawMaterials" />
           <AssociationSet Name="FK_Cargo_RawMaterials" Association="TTCModel.FK_Cargo_RawMaterials">
             <End Role="RawMaterials" EntitySet="RawMaterials" />
             <End Role="Cargo" EntitySet="Cargo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cargo_Branches" Association="TTCModel.FK_Cargo_Branches">
+            <End Role="Branches" EntitySet="Branches" />
+            <End Role="Cargo" EntitySet="Cargo" />
+          </AssociationSet>
+          <EntitySet Name="Supply" EntityType="TTCModel.Supply" />
+          <AssociationSet Name="FK_Supply_Locos" Association="TTCModel.FK_Supply_Locos">
+            <End Role="Locos" EntitySet="Locos" />
+            <End Role="Supply" EntitySet="Supply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supply_Machinist" Association="TTCModel.FK_Supply_Machinist">
+            <End Role="Machinist" EntitySet="Machinist" />
+            <End Role="Supply" EntitySet="Supply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supply_Railway" Association="TTCModel.FK_Supply_Railway">
+            <End Role="Railway" EntitySet="Railway" />
+            <End Role="Supply" EntitySet="Supply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supply_Shipment" Association="TTCModel.FK_Supply_Shipment">
+            <End Role="Shipment" EntitySet="Shipment" />
+            <End Role="Supply" EntitySet="Supply" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="C__MigrationHistory">
@@ -650,7 +650,7 @@
           <Property Name="idBranch" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="BranchNumber" Type="Int32" />
           <NavigationProperty Name="Distribution" Relationship="TTCModel.FK_Distribution_Branches" FromRole="Branches" ToRole="Distribution" />
-          <NavigationProperty Name="Supply" Relationship="TTCModel.FK_Supply_Branches" FromRole="Branches" ToRole="Supply" />
+          <NavigationProperty Name="Cargo" Relationship="TTCModel.FK_Cargo_Branches" FromRole="Branches" ToRole="Cargo" />
         </EntityType>
         <EntityType Name="Cargo">
           <Key>
@@ -664,6 +664,8 @@
           <Property Name="idRawMaterial" Type="Int32" />
           <NavigationProperty Name="Shipment" Relationship="TTCModel.FK_Cargo_Shipment" FromRole="Cargo" ToRole="Shipment" />
           <NavigationProperty Name="RawMaterials" Relationship="TTCModel.FK_Cargo_RawMaterials" FromRole="Cargo" ToRole="RawMaterials" />
+          <Property Name="idBranch" Type="Int32" />
+          <NavigationProperty Name="Branches" Relationship="TTCModel.FK_Cargo_Branches" FromRole="Cargo" ToRole="Branches" />
         </EntityType>
         <EntityType Name="Distribution">
           <Key>
@@ -692,24 +694,6 @@
           <Property Name="RailwayName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Supply" Relationship="TTCModel.FK_Supply_Railway" FromRole="Railway" ToRole="Supply" />
         </EntityType>
-        <EntityType Name="Supply">
-          <Key>
-            <PropertyRef Name="idSupply" />
-          </Key>
-          <Property Name="idSupply" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idRailway" Type="Int32" />
-          <Property Name="idShipment" Type="Int32" />
-          <Property Name="idMachinist" Type="Int32" />
-          <Property Name="DateofDelivery" Type="DateTime" Precision="3" />
-          <Property Name="idLoco" Type="Int32" />
-          <Property Name="DateofDeparture" Type="DateTime" Precision="3" />
-          <Property Name="idBranch" Type="Int32" />
-          <NavigationProperty Name="Branches" Relationship="TTCModel.FK_Supply_Branches" FromRole="Supply" ToRole="Branches" />
-          <NavigationProperty Name="Locos" Relationship="TTCModel.FK_Supply_Locos" FromRole="Supply" ToRole="Locos" />
-          <NavigationProperty Name="Railway" Relationship="TTCModel.FK_Supply_Railway" FromRole="Supply" ToRole="Railway" />
-          <NavigationProperty Name="Shipment" Relationship="TTCModel.FK_Supply_Shipment" FromRole="Supply" ToRole="Shipment" />
-          <NavigationProperty Name="Machinist" Relationship="TTCModel.FK_Supply_Machinist" FromRole="Supply" ToRole="Machinist" />
-        </EntityType>
         <Association Name="FK_Distribution_Branches">
           <End Type="TTCModel.Branches" Role="Branches" Multiplicity="0..1" />
           <End Type="TTCModel.Distribution" Role="Distribution" Multiplicity="*" />
@@ -719,42 +703,6 @@
             </Principal>
             <Dependent Role="Distribution">
               <PropertyRef Name="idBranch" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Supply_Branches">
-          <End Type="TTCModel.Branches" Role="Branches" Multiplicity="0..1" />
-          <End Type="TTCModel.Supply" Role="Supply" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Branches">
-              <PropertyRef Name="idBranch" />
-            </Principal>
-            <Dependent Role="Supply">
-              <PropertyRef Name="idBranch" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Supply_Locos">
-          <End Type="TTCModel.Locos" Role="Locos" Multiplicity="0..1" />
-          <End Type="TTCModel.Supply" Role="Supply" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Locos">
-              <PropertyRef Name="idLoco" />
-            </Principal>
-            <Dependent Role="Supply">
-              <PropertyRef Name="idLoco" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Supply_Railway">
-          <End Type="TTCModel.Railway" Role="Railway" Multiplicity="0..1" />
-          <End Type="TTCModel.Supply" Role="Supply" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Railway">
-              <PropertyRef Name="idRailway" />
-            </Principal>
-            <Dependent Role="Supply">
-              <PropertyRef Name="idRailway" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -780,18 +728,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Supply_Shipment">
-          <End Type="TTCModel.Shipment" Role="Shipment" Multiplicity="0..1" />
-          <End Type="TTCModel.Supply" Role="Supply" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Shipment">
-              <PropertyRef Name="idShipment" />
-            </Principal>
-            <Dependent Role="Supply">
-              <PropertyRef Name="idShipment" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Machinist">
           <Key>
             <PropertyRef Name="idMachinist" />
@@ -803,18 +739,6 @@
           <Property Name="Telephone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Supply" Relationship="TTCModel.FK_Supply_Machinist" FromRole="Machinist" ToRole="Supply" />
         </EntityType>
-        <Association Name="FK_Supply_Machinist">
-          <End Type="TTCModel.Machinist" Role="Machinist" Multiplicity="0..1" />
-          <End Type="TTCModel.Supply" Role="Supply" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Machinist">
-              <PropertyRef Name="idMachinist" />
-            </Principal>
-            <Dependent Role="Supply">
-              <PropertyRef Name="idMachinist" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="RawMaterials">
           <Key>
             <PropertyRef Name="idMaterial" />
@@ -832,6 +756,82 @@
             </Principal>
             <Dependent Role="Cargo">
               <PropertyRef Name="idRawMaterial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cargo_Branches">
+          <End Type="TTCModel.Branches" Role="Branches" Multiplicity="0..1" />
+          <End Type="TTCModel.Cargo" Role="Cargo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branches">
+              <PropertyRef Name="idBranch" />
+            </Principal>
+            <Dependent Role="Cargo">
+              <PropertyRef Name="idBranch" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Supply">
+          <Key>
+            <PropertyRef Name="idSupply" />
+          </Key>
+          <Property Name="idSupply" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idRailway" Type="Int32" />
+          <Property Name="idShipment" Type="Int32" />
+          <Property Name="idMachinist" Type="Int32" />
+          <Property Name="DateofDelivery" Type="DateTime" Precision="3" />
+          <Property Name="idLoco" Type="Int32" />
+          <Property Name="DateofDeparture" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Locos" Relationship="TTCModel.FK_Supply_Locos" FromRole="Supply" ToRole="Locos" />
+          <NavigationProperty Name="Machinist" Relationship="TTCModel.FK_Supply_Machinist" FromRole="Supply" ToRole="Machinist" />
+          <NavigationProperty Name="Railway" Relationship="TTCModel.FK_Supply_Railway" FromRole="Supply" ToRole="Railway" />
+          <NavigationProperty Name="Shipment" Relationship="TTCModel.FK_Supply_Shipment" FromRole="Supply" ToRole="Shipment" />
+        </EntityType>
+        <Association Name="FK_Supply_Locos">
+          <End Type="TTCModel.Locos" Role="Locos" Multiplicity="0..1" />
+          <End Type="TTCModel.Supply" Role="Supply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locos">
+              <PropertyRef Name="idLoco" />
+            </Principal>
+            <Dependent Role="Supply">
+              <PropertyRef Name="idLoco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supply_Machinist">
+          <End Type="TTCModel.Machinist" Role="Machinist" Multiplicity="0..1" />
+          <End Type="TTCModel.Supply" Role="Supply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Machinist">
+              <PropertyRef Name="idMachinist" />
+            </Principal>
+            <Dependent Role="Supply">
+              <PropertyRef Name="idMachinist" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supply_Railway">
+          <End Type="TTCModel.Railway" Role="Railway" Multiplicity="0..1" />
+          <End Type="TTCModel.Supply" Role="Supply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Railway">
+              <PropertyRef Name="idRailway" />
+            </Principal>
+            <Dependent Role="Supply">
+              <PropertyRef Name="idRailway" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supply_Shipment">
+          <End Type="TTCModel.Shipment" Role="Shipment" Multiplicity="0..1" />
+          <End Type="TTCModel.Supply" Role="Supply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shipment">
+              <PropertyRef Name="idShipment" />
+            </Principal>
+            <Dependent Role="Supply">
+              <PropertyRef Name="idShipment" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -951,6 +951,7 @@
           <EntitySetMapping Name="Cargo">
             <EntityTypeMapping TypeName="TTCModel.Cargo">
               <MappingFragment StoreEntitySet="Cargo">
+                <ScalarProperty Name="idBranch" ColumnName="idBranch" />
                 <ScalarProperty Name="idRawMaterial" ColumnName="idRawMaterial" />
                 <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="Weight" ColumnName="Weight" />
@@ -987,20 +988,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Supply">
-            <EntityTypeMapping TypeName="TTCModel.Supply">
-              <MappingFragment StoreEntitySet="Supply">
-                <ScalarProperty Name="idBranch" ColumnName="idBranch" />
-                <ScalarProperty Name="DateofDeparture" ColumnName="DateofDeparture" />
-                <ScalarProperty Name="idLoco" ColumnName="idLoco" />
-                <ScalarProperty Name="DateofDelivery" ColumnName="DateofDelivery" />
-                <ScalarProperty Name="idMachinist" ColumnName="idMachinist" />
-                <ScalarProperty Name="idShipment" ColumnName="idShipment" />
-                <ScalarProperty Name="idRailway" ColumnName="idRailway" />
-                <ScalarProperty Name="idSupply" ColumnName="idSupply" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Shipment">
             <EntityTypeMapping TypeName="TTCModel.Shipment">
               <MappingFragment StoreEntitySet="Shipment">
@@ -1026,6 +1013,19 @@
               <MappingFragment StoreEntitySet="RawMaterials">
                 <ScalarProperty Name="NameMaterial" ColumnName="NameMaterial" />
                 <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Supply">
+            <EntityTypeMapping TypeName="TTCModel.Supply">
+              <MappingFragment StoreEntitySet="Supply">
+                <ScalarProperty Name="DateofDeparture" ColumnName="DateofDeparture" />
+                <ScalarProperty Name="idLoco" ColumnName="idLoco" />
+                <ScalarProperty Name="DateofDelivery" ColumnName="DateofDelivery" />
+                <ScalarProperty Name="idMachinist" ColumnName="idMachinist" />
+                <ScalarProperty Name="idShipment" ColumnName="idShipment" />
+                <ScalarProperty Name="idRailway" ColumnName="idRailway" />
+                <ScalarProperty Name="idSupply" ColumnName="idSupply" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

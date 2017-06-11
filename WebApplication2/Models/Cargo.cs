@@ -7,21 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication2.Models
+using System;
+using System.Collections.Generic;
+
+public partial class Cargo
 {
-    using System;
-    using System.Collections.Generic;
-    
-    public partial class Cargo
-    {
-        public int idCargo { get; set; }
-        public Nullable<int> idShipment { get; set; }
-        public string Number { get; set; }
-        public Nullable<double> Weight { get; set; }
-        public string State { get; set; }
-        public Nullable<int> idRawMaterial { get; set; }
-    
-        public virtual Shipment Shipment { get; set; }
-        public virtual RawMaterials RawMaterials { get; set; }
-    }
+    public int idCargo { get; set; }
+    public Nullable<int> idShipment { get; set; }
+    public string Number { get; set; }
+    public Nullable<double> Weight { get; set; }
+    public string State { get; set; }
+    public Nullable<int> idRawMaterial { get; set; }
+    public Nullable<int> idBranch { get; set; }
+
+    public virtual Shipment Shipment { get; set; }
+    public virtual RawMaterials RawMaterials { get; set; }
+    public virtual Branches Branches { get; set; }
 }

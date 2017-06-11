@@ -7,26 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication2.Models
+using System;
+using System.Collections.Generic;
+
+public partial class Machinist
 {
-    using System;
-    using System.Collections.Generic;
-    
-    public partial class Machinist
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+    public Machinist()
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Machinist()
-        {
-            this.Supply = new HashSet<Supply>();
-        }
-    
-        public int idMachinist { get; set; }
-        public string FIO { get; set; }
-        public Nullable<System.DateTime> DateBirth { get; set; }
-        public string Address { get; set; }
-        public string Telephone { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Supply> Supply { get; set; }
+        this.Supply = new HashSet<Supply>();
     }
+
+    public int idMachinist { get; set; }
+    public string FIO { get; set; }
+    public Nullable<System.DateTime> DateBirth { get; set; }
+    public string Address { get; set; }
+    public string Telephone { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    public virtual ICollection<Supply> Supply { get; set; }
 }
