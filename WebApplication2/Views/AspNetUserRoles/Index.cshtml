@@ -6,16 +6,16 @@
 
 <h2>Index</h2>
 
-<p>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.AspNetRoles.Name)
+            Роль
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AspNetUsers.Email)
+            E-mail
         </th>
         <th></th>
     </tr>
@@ -29,9 +29,9 @@
             @Html.DisplayFor(modelItem => item.AspNetUsers.Email)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.UserRoleId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.UserRoleId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.UserRoleId })
+            @Html.ActionLink("Изменить", "Edit", new { id=item.UserRoleId }) |
+            @*@Html.ActionLink("Детали", "Details", new { id=item.UserRoleId }) |*@
+            @Html.ActionLink("Удалить", "Delete", new { id=item.UserRoleId })
         </td>
     </tr>
 }

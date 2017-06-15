@@ -7,12 +7,12 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Создать", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.BranchNumber)
+            Номер ветви
         </th>
         <th></th>
     </tr>
@@ -23,9 +23,9 @@
             @Html.DisplayFor(modelItem => item.BranchNumber)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idBranch }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idBranch }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idBranch })
+            @Html.ActionLink("Изменить", "Edit", new { id=item.idBranch }) |
+            @Html.ActionLink("Детали", "Details", new { id=item.idBranch }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.idBranch })
         </td>
     </tr>
 }

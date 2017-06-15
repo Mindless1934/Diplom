@@ -7,12 +7,12 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Создать", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.NameMaterial)
+            Сырьё
         </th>
         <th></th>
     </tr>
@@ -23,9 +23,9 @@
             @Html.DisplayFor(modelItem => item.NameMaterial)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idMaterial }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idMaterial }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idMaterial })
+            @Html.ActionLink("Изменить", "Edit", new { id=item.idMaterial }) |
+            @Html.ActionLink("Детали", "Details", new { id=item.idMaterial }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.idMaterial })
         </td>
     </tr>
 }

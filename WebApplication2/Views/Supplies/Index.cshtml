@@ -7,27 +7,27 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Создать", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.DateofDelivery)
+            Дата доставки
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateofDeparture)
+            Дата отправки
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Locos.LocoName)
+            Локомотив
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Railway.RailwayType)
+            Пути
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Shipment.ShipmentName)
+            Состав
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Machinist.FIO)
+            Машинист
         </th>
         <th></th>
     </tr>
@@ -53,9 +53,9 @@
             @Html.DisplayFor(modelItem => item.Machinist.FIO)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idSupply }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idSupply }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idSupply })
+            @Html.ActionLink("Изменить", "Edit", new { id=item.idSupply }) |
+            @Html.ActionLink("Детали", "Details", new { id=item.idSupply }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.idSupply })
         </td>
     </tr>
 }
