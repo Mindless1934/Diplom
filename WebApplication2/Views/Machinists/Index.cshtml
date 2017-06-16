@@ -14,9 +14,9 @@
         <th>
             ФИО
         </th>
-        <th>
-            Дата рождения
-        </th>
+        @*<th>
+        Дата рождения
+    </th>*@
         <th>
             Адрес проживания
         </th>
@@ -34,9 +34,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.FIO)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateBirth)
-        </td>
+        @*<td>
+        @Html.DisplayFor(modelItem => item.DateBirth)
+    </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Address)
         </td>
@@ -74,11 +74,23 @@
 }
 
 </table>
-<div class="browse-button" style="margin-left:10px; margin-top:10px;">
-    <input type="button" value="Экспорт" class="btn btn-default">
-    <input type="file" name="excelfile">
+
+<h4>Импорт/Экспорт</h4>
+<div class="button-area">
+    <p> </p>
+    @Html.ActionLink("Экспорт", "Export", new { }, new { @class = "btn btn-default dopBut" })
+
+    @using (Html.BeginForm("Import", "Machinists", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.Raw(ViewBag.Error)
+
+        <div class="browse-button" style="margin-left:10px; margin-top:10px;">
+            <input type="button" value="Открыть" class="btn btn-default">
+            <input type="file" name="excelfile">
+        </div>
+            <input type="submit" value="Импорт" class="btn btn-default" style="margin-left:20px; margin-top:10px;" />
+
+    }
+    <p> </p>
 </div>
-<div class="browse-button" style="margin-left:10px; margin-top:10px;">
-    <input type="button" value="Импорт" class="btn btn-default">
-    <input type="file" name="excelfile">
-</div>
+

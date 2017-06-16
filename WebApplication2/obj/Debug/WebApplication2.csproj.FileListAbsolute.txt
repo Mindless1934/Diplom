@@ -392,3 +392,4 @@ C:\Users\Ilya\Desktop\D\Diplom\WebApplication2\bin\ru\Microsoft.AspNet.Identity.
 C:\Users\Ilya\Desktop\D\Diplom\WebApplication2\bin\ru\Microsoft.AspNet.Identity.Owin.resources.dll
 C:\Users\Ilya\Desktop\D\Diplom\WebApplication2\bin\ru\Microsoft.AspNet.Identity.EntityFramework.resources.dll
 C:\Users\Ilya\Desktop\D\Diplom\WebApplication2\obj\Debug\WebApplication2.csprojResolveAssemblyReference.cache
+C:\Users\Вадим\Desktop\Diplom\WebApplication2\bin\Calabonga.Xml.Exports.dll

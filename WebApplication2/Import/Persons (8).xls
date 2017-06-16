@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?><?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="http://www.w3.org/TR/REC-html40">
+  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+    <Author>Calabonga</Author>
+    <Created>16.06.2017 0:00:00</Created>
+    <LastAutor>Calabonga</LastAutor>
+    <Version>14</Version>
+  </DocumentProperties>
+  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+    <AllowPNG />
+  </OfficeDocumentSettings>
+  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+    <ProtectStructure>False</ProtectStructure>
+    <ProtectWindows>False</ProtectWindows>
+  </ExcelWorkbook>
+  <Styles>
+    <Style ss:ID="Default" ss:Name="Normal">
+      <Aligment ss:Vertical="Bottom" />
+      <Borders />
+      <Font ss:FontName="Calibri" x:CharSet="204" x:Family="Swiss" ss:Size="11" ss:Color="#000000" />
+      <Interior />
+      <NumberFormat />
+      <Protection />
+    </Style>
+  </Styles>
+  <Worksheet ss:Name="Пользователи">
+    <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="4" x:FullColumns="1" x:FullRows="1" ss:DefaultRowHeight="15">
+      <Row ss:AutoFitHeight="0">
+        <Cell>
+          <Data ss:Type="String">Фио</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">Аддрес</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">Телефон</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell>
+          <Data ss:Type="String">Зарецкий Александр Вадимович</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">пр.Волошиной, 17</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">646346    </Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell>
+          <Data ss:Type="String">Мазур Юрий Зурабович</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">улица Коммунистов, 5-24</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">880055    </Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell>
+          <Data ss:Type="String">asdaf</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">qweqwer</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">457434    </Data>
+        </Cell>
+      </Row>
+    </Table>
+    <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+      <PageSetup>
+        <Header x:Margin="0,5" />
+        <Footer x:Margin="0,5" />
+        <Layout Orientation="Portrait" />
+        <PageMargins />
+      </PageSetup>
+      <Print>
+        <HorizontalResolution>600</HorizontalResolution>
+        <VerticalResolution>600</VerticalResolution>
+      </Print>
+      <ProtectObjects>False</ProtectObjects>
+      <ProtectScenarios>False</ProtectScenarios>
+    </WorksheetOptions>
+  </Worksheet>
+</Workbook>
